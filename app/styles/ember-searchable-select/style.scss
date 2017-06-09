@@ -106,7 +106,15 @@ $searchable-select-spacer-horizontal: 1em;
     }
   }
 
-  &__clear {
+  &__search-options {
+    display: flex;
+
+    *:first-child {
+      flex: 1;
+    }
+  }
+
+  &__clear, &__select-all {
     position: relative;
     line-height: 1;
     padding: 0.75em $searchable-select-spacer-horizontal--has-icon;

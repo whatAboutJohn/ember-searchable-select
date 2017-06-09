@@ -17,6 +17,7 @@ export default Ember.Component.extend({
   sortBy: null,
   limitSearchToWordBoundary: false,
   multiple: false,
+  selectAll: false,
   closeOnSelection: true,
 
   prompt: 'Select an option',
@@ -291,6 +292,15 @@ export default Ember.Component.extend({
     clear() {
       this.send('selectItem', null);
     },
+
+    selectAll () {
+      this.set('_selected', this.get('content'))
+
+      if (this.get('closeOnSelection')) {
+        this.send('hideMenu')
+      }
+    },
+
     removeOption(option) {
       this.removeFromSelected(option);
       this['on-change'].call(this, this.get('_selected'));
